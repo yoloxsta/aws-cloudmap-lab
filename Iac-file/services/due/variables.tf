@@ -1,4 +1,4 @@
-variable "fgms_due_service_namespace" {
-  description = "fgms due service namespace"
-  default     = "fgms-due-service"
+variable "sta_due_service_namespace" {
+  description = "sta due service namespace"
+  default     = "sta-due-service"
 }
