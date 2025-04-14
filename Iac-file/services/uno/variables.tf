@@ -1,4 +1,4 @@
-variable "fgms_uno_service_namespace" {
-  description = "fgms uno service namespace"
-  default     = "fgms-uno-service"
+variable "sta_uno_service_namespace" {
+  description = "sta uno service namespace"
+  default     = "sta-uno-service"
 }
