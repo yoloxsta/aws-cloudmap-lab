@@ -1,6 +1,6 @@
 terraform {
   backend "s3" {
-    bucket         = "fgms-infra"
+    bucket         = "sta-infra"
     key            = "vpc.tfstate"
     region         = "eu-west-1"
     dynamodb_table = "terraform_lock"
@@ -8,7 +8,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "3.73.0"
+      version = ">= 5.79.0"
     }
   }
 }
@@ -23,7 +23,7 @@ provider "aws" {
 module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
 
-  name = "fgms-vpc"
+  name = "sta-vpc"
   cidr = "10.0.0.0/16"
 
   azs             = ["eu-west-1a", "eu-west-1b"]
@@ -37,7 +37,7 @@ module "vpc" {
   single_nat_gateway = true
 
   tags = {
-    group       = "fgms"
+    group       = "sta"
     Environment = "dev"
   }
 }
