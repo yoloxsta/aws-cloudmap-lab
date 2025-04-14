@@ -1,4 +1,4 @@
-output "fgms_tre_service_namespace" {
-    description = "fgms tre service namespace"
-    value = var.fgms_tre_service_namespace
+output "sta_tre_service_namespace" {
+    description = "sta tre service namespace"
+    value = var.sta_tre_service_namespace
 }
