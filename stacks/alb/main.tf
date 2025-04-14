@@ -1,6 +1,6 @@
 terraform {
   backend "s3" {
-    bucket         = "fgms-infra"
+    bucket         = "sta-infra"
     key            = "alb.tfstate"
     region         = "eu-west-1"
     dynamodb_table = "terraform_lock"
@@ -8,7 +8,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "3.73.0"
+      version = ">= 5.79.0"
     }
   }
 }
@@ -23,22 +23,22 @@ provider "aws" {
 data "terraform_remote_state" "vpc" {
   backend = "s3"
   config = {
-    bucket = "fgms-infra"
+    bucket = "sta-infra"
     key    = "vpc.tfstate"
     region = "eu-west-1"
   }
 }
 
 
-resource "aws_lb" "fgms_alb" {
+resource "aws_lb" "sta_alb" {
   load_balancer_type = "application"
-  subnets            = data.terraform_remote_state.vpc.outputs.fgms_public_subnets_ids
-  security_groups    = ["${aws_security_group.fgms_alb_sg.id}"]
+  subnets            = data.terraform_remote_state.vpc.outputs.sta_public_subnets_ids
+  security_groups    = ["${aws_security_group.sta_alb_sg.id}"]
 }
 
-resource "aws_security_group" "fgms_alb_sg" {
+resource "aws_security_group" "sta_alb_sg" {
   description = "controls access to the ALB"
-  vpc_id      = data.terraform_remote_state.vpc.outputs.fgms_vpc_id
+  vpc_id      = data.terraform_remote_state.vpc.outputs.sta_vpc_id
 
   ingress {
     protocol    = "tcp"

@@ -1,6 +1,6 @@
 terraform {
   backend "s3" {
-    bucket         = "fgms-infra"
+    bucket         = "sta-infra"
     key            = "ecs.tfstate"
     region         = "eu-west-1"
     dynamodb_table = "terraform_lock"
@@ -8,7 +8,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "3.73.0"
+      version = ">= 5.79.0"
     }
   }
 }
@@ -20,6 +20,6 @@ provider "aws" {
 }
 
 
-resource "aws_ecs_cluster" "fgms_ecs_cluster" {
-  name = "fgms_ecs_cluster"
+resource "aws_ecs_cluster" "sta_ecs_cluster" {
+  name = "sta_ecs_cluster"
 }

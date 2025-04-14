@@ -1,4 +1,4 @@
-variable "fgms_private_dns_namespace" {
-  description = "fgms private dns namespace"
-  default     = "fgms-app.test"
+variable "sta_private_dns_namespace" {
+  description = "sta private dns namespace"
+  default     = "sta-app.test"
 }
