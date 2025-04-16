@@ -3,7 +3,6 @@ const fetch = require('node-fetch');
 const app = express()
 const port = 3000
 
-//https://dummyjson.com/products/1
 app.get('/', (req, res) => {
   res.json({
     msg: "Hello world! (from due)",
