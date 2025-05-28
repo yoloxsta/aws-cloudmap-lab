@@ -16,7 +16,7 @@ terraform {
 
 provider "aws" {
   region  = "eu-west-1"
-  profile = "<YOUR AWS PROFILE NAME>"
+  #profile = "<YOUR AWS PROFILE NAME>"
 }
 
 
@@ -149,7 +149,7 @@ resource "aws_ecs_task_definition" "sta_uno_td" {
     [
       {
         cpu : 256,
-        image : "id.dkr.ecr.eu-west-1.amazonaws.com/sta-uno:v1",
+        image : "905418102296.dkr.ecr.eu-west-1.amazonaws.com/sta-uno:v1",
         memory : 512,
         name : "sta-uno",
         networkMode : "awsvpc",

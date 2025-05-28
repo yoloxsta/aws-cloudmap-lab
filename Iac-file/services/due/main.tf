@@ -16,7 +16,7 @@ terraform {
 
 provider "aws" {
   region  = "eu-west-1"
-  profile = "<YOUR AWS PROFILE NAME>"
+  #profile = "<YOUR AWS PROFILE NAME>"
 }
 
 
@@ -125,7 +125,7 @@ resource "aws_ecs_task_definition" "sta_due_td" {
     [
       {
         cpu : 256,
-        image : "248581660709.dkr.ecr.eu-west-1.amazonaws.com/sta-due:v1",
+        image : "905418102296.dkr.ecr.eu-west-1.amazonaws.com/sta-due:v1",
         memory : 512,
         name : "sta-due",
         networkMode : "awsvpc",

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>UNO Service</title>
+</head>
+<body>
+  <h1>Hello from UNO!</h1>
+  <button onclick="callDue()">Call Due</button>
+  <button onclick="callTre()">Call Tre</button>
+
+  <h2>Response:</h2>
+  <pre id="responseBox">Click a button to fetch data...</pre>
+
+  <script>
+    async function callDue() {
+      const res = await fetch('/call-due');
+      const data = await res.json();
+      document.getElementById('responseBox').textContent = JSON.stringify(data, null, 2);
+    }
+
+    async function callTre() {
+      const res = await fetch('/call-tre');
+      const data = await res.json();
+      document.getElementById('responseBox').textContent = JSON.stringify(data, null, 2);
+    }
+  </script>
+</body>
+</html>

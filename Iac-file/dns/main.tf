@@ -16,7 +16,7 @@ terraform {
 
 provider "aws" {
   region  = "eu-west-1"
-  profile = "<YOUR AWS PROFILE NAME>"
+  #profile = "<YOUR AWS PROFILE NAME>"
 }
 
 
